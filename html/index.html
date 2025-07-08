@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alquila o compra las mejores películas online. Gran catálogo de los últimos estrenos y clásicos del cine.">
+    <meta name="keywords" content="películas, alquiler películas, comprar películas, cine, streaming">
+    <meta name="author" content="CineFlix">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#e50914">
+    <title>CineFlix - Alquiler y Compra de Películas</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preload" href="../js/script.js" as="script">
+    <link rel="icon" type="image/png" href="../img/Diseño sin título-Photoroom.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "CineFlix",
+        "url": "https://cineflix.example.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://cineflix.example.com/peliculas?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+    
+    <header role="banner">
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo-wrapper">
+                    <img src="../img/Diseño sin título-Photoroom.png" alt="CineFlix" class="logo-img">
+                    <div class="logo-text">
+                        <h1 class="logo-mark">CINEFLIX</h1>
+                        <p class="logo-tagline">Tu cine en casa</p>
+                    </div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="search-container">
+                    <label for="search-input" class="sr-only">Buscar películas</label>
+                    <input type="text" placeholder="Buscar películas..." id="search-input" aria-label="Buscar películas">
+                    <button id="search-btn" aria-label="Buscar"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="cart-container">
+                    <button id="cart-toggle" aria-label="Ver carrito" aria-expanded="false" aria-controls="cart-modal">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav role="navigation" aria-label="Menú principal">
+        <div class="container">
+            <ul>
+                <li><a href="#home" class="nav-link" aria-current="page">Inicio</a></li>
+                <li><a href="#movies" class="nav-link">Películas</a></li>
+                <li><a href="#how-it-works" class="nav-link">Cómo funciona</a></li>
+                <li><a href="#reviews" class="nav-link">Reseñas</a></li>
+                <li><a href="#contact" class="nav-link">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+        <section id="home" class="hero">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">Las mejores películas a un clic de distancia</h2>
+                    <p class="hero-subtitle">Alquila o compra los últimos estrenos y clásicos del cine</p>
+                    <div class="hero-actions">
+                        <a href="#movies" class="btn btn-primary">Ver catálogo</a>
+                        <a href="#how-it-works" class="btn btn-secondary">Cómo funciona</a>
+                    </div>
+                </div>
+                <div class="hero-video" aria-label="Video promocional">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/5PSNL1qE6VY?autoplay=1&mute=1&loop=1&playlist=5PSNL1qE6VY&controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Video promocional de CineFlix"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="movies" class="products" aria-labelledby="movies-heading">
+            <div class="container">
+                <h2 id="movies-heading">Nuestro Catálogo</h2>
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <label for="genre-filter" class="sr-only">Filtrar por género</label>
+                        <select id="genre-filter" aria-label="Filtrar por género">
+                            <option value="all">Todos los géneros</option>
+                            <option value="action">Acción</option>
+                            <option value="comedy">Comedia</option>
+                            <option value="drama">Drama</option>
+                            <option value="sci-fi">Ciencia Ficción</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="type-filter" class="sr-only">Filtrar por tipo</label>
+                        <select id="type-filter" aria-label="Filtrar por tipo">
+                            <option value="all">Todas</option>
+                            <option value="rent">Solo alquiler</option>
+                            <option value="buy">Solo compra</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sort-filter" class="sr-only">Ordenar por</label>
+                        <select id="sort-filter" aria-label="Ordenar por">
+                            <option value="default">Ordenar por</option>
+                            <option value="price-asc">Precio: menor a mayor</option>
+                            <option value="price-desc">Precio: mayor a menor</option>
+                            <option value="title-asc">Título: A-Z</option>
+                            <option value="title-desc">Título: Z-A</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="loading-spinner" id="loading-spinner" aria-hidden="true">
+                    <div class="spinner"></div>
+                    <p>Cargando películas...</p>
+                </div>
+                <div class="movie-grid" id="movie-container" role="list">
+                    <!-- Las películas se cargarán aquí con JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works" aria-labelledby="how-it-works-heading">
+            <div class="container">
+                <h2 id="how-it-works-heading">Cómo funciona CineFlix</h2>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Explora nuestro catálogo</h3>
+                            <p>Navega por nuestra amplia selección de películas. Utiliza los filtros para encontrar exactamente lo que buscas o descubre nuevos títulos en nuestras colecciones.</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Elige cómo disfrutarla</h3>
+                            <p>Selecciona entre alquilar la película por 48 horas o comprarla para tener acceso ilimitado. También puedes añadir varias películas a tu carrito.</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Pago seguro</h3>
+                            <p>Realiza el pago de forma rápida y segura con múltiples métodos de pago disponibles. Tu información está protegida con encriptación de última generación.</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Disfruta donde quieras</h3>
+                            <p>Accede a tus películas en cualquier dispositivo, en cualquier momento. Compatible con smartphones, tablets, computadoras y smart TVs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-section">
+                    <h3>Preguntas frecuentes</h3>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <button class="faq-question">¿Cuánto tiempo tengo para ver una película alquilada?<i class="fas fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <p>Cuando alquilas una película, tienes 48 horas para verla una vez que comiences la reproducción. Durante ese período, puedes verla tantas veces como quieras.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">¿Puedo descargar las películas?<i class="fas fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <p>Sí, las películas compradas pueden ser descargadas para verlas sin conexión en nuestros dispositivos móviles compatibles. Las películas alquiladas solo están disponibles para streaming.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">¿Qué calidad de video ofrecen?<i class="fas fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <p>Todas nuestras películas están disponibles en alta definición (HD) y muchas también en ultra alta definición (4K UHD) con sonido envolvente, dependiendo de tu conexión a internet y dispositivo.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">¿Puedo compartir mi cuenta?<i class="fas fa-chevron-down"></i></button>
+                            <div class="faq-answer">
+                                <p>Puedes iniciar sesión en hasta 5 dispositivos diferentes, pero solo puedes reproducir contenido en 2 dispositivos simultáneamente. Las películas alquiladas solo pueden reproducirse en un dispositivo a la vez.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="reviews" aria-labelledby="reviews-heading">
+            <div class="container">
+                <h2 id="reviews-heading">Reseñas de nuestros clientes</h2>
+                <div class="reviews-grid">
+                    <div class="review-card" role="article">
+                        <img src="../img/woman.svg" alt="Foto de María González" class="review-avatar" loading="lazy">
+                        <h3>María G.</h3>
+                        <div class="stars" aria-label="5 estrellas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Excelente servicio, la película llegó perfectamente y la calidad es increíble. Volveré a comprar."</p>
+                    </div>
+                    <div class="review-card" role="article">
+                        <img src="../img/man.svg" alt="Foto de Carlos Martínez" class="review-avatar" loading="lazy">
+                        <h3>Carlos M.</h3>
+                        <div class="stars" aria-label="4 estrellas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p>"Buen catálogo, aunque me gustaría que tuvieran más películas antiguas. El proceso de alquiler es muy sencillo."</p>
+                    </div>
+                    <div class="review-card" role="article">
+                        <img src="../img/woman.svg" alt="Foto de Laura Pérez" class="review-avatar" loading="lazy">
+                        <h3>Laura P.</h3>
+                        <div class="stars" aria-label="4.5 estrellas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"Me encanta poder comprar películas digitales y tenerlas siempre disponibles. La calidad de streaming es excelente."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <h2 id="contact-heading">Contacto</h2>
+                <form id="contact-form" action="https://formspree.io/f/mbloqorb" method="POST" role="form" novalidate>
+                    <div class="form-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" name="name" required aria-required="true" minlength="2">
+                        <span class="error-message" id="name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje:</label>
+                        <textarea id="message" name="message" rows="5" required aria-required="true" minlength="10"></textarea>
+                        <span class="error-message" id="message-error"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    <div id="form-message" role="alert"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../img/favicona.png" alt="CineFlix" width="120">
+                        <h3>CineFlix</h3>
+                    </div>
+                    <p>El mejor lugar para alquilar y comprar tus películas favoritas.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="#home">Inicio</a></li>
+                        <li><a href="#movies">Películas</a></li>
+                        <li><a href="#how-it-works">Cómo funciona</a></li>
+                        <li><a href="#reviews">Reseñas</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> info@cineflix.com</p>
+                    <p><i class="fas fa-phone"></i> +34 123 456 789</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/cuevana3com/?locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/NETFLIX" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/primevideolat/?hl=es" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=cv276Wg3e7I" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> CineFlix. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal del Carrito -->
+    <div id="cart-modal" class="modal" role="dialog" aria-modal="false" aria-labelledby="cart-modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close-modal" tabindex="0" role="button" aria-label="Cerrar carrito">&times;</span>
+            <h2 id="cart-modal-title">Tu Carrito</h2>
+            <div id="cart-items-container">
+                <!-- Los items del carrito se cargarán aquí -->
+                <p id="empty-cart-message">Tu carrito está vacío</p>
+            </div>
+            <div class="cart-summary">
+                <div class="cart-subtotal">
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">$0 ARS</span>
+                    </div>
+                    <div class="cart-discount" id="discount-section" style="display: none;">
+                        <span>Descuento:</span>
+                        <span id="cart-discount">-$0 ARS</span>
+                    </div>
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span id="cart-total">$0 ARS</span>
+                    </div>
+
+                <div class="promo-code">
+                    <label for="promo-code-input" class="sr-only">Código promocional</label>
+                    <input type="text" id="promo-code-input" placeholder="Código promocional" aria-label="Ingresar código promocional">
+                    <button id="apply-promo-btn" class="btn btn-secondary">Aplicar</button>
+                </div>
+            </div>
+            <button id="checkout-btn" class="btn btn-primary">Proceder al Pago</button>
+        </div>
+    </div>
+
+    <script src="../js/script.js" defer></script>
+</body>
+</html>
