@@ -1,6 +1,6 @@
 # CineFlix - Plataforma de Alquiler y Compra de Películas
 
-![Logo de CineFlix](img/Diseño%20sin%20título-Photoroom.png)
+![Logo de CineFlix](img/favicona.png.png)
 
 CineFlix es una plataforma web moderna para alquilar y comprar películas digitales. Ofrece un catálogo de películas con opciones de alquiler (48 horas) o compra (acceso ilimitado).
 
